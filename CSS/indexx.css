@@ -50,40 +50,12 @@ body{
     font-weight:500;
 }
 
-
 @media (max-width: 768px){
-
-    .navbar{
-        flex-direction: column;
-        text-align: center;
+    .logo img{
+        height: 30px;
+        width: auto;
+        object-fit: contain;
     }
-
-    .navbar ul{
-        flex-direction: column;
-        margin-top: 10px;
-    }
-
-    .navbar ul li{
-        margin: 10px 0;
-    }
-
-    .produits{
-        grid-template-columns: 1fr;
-        padding: 0 15px;
-    }
-
-    .search-box{
-        padding: 0 15px;
-    }
-
-    .main-image{
-        width: 100%;
-    }
-
-    .cart{
-        width: 100%;
-    }
-
 }
 
 /* HERO */
@@ -120,13 +92,6 @@ body{
 }
 
 /* SECTIONS */
-/* .section{
-    padding:100px 50px;
-    text-align:center;
-    opacity:0;
-    transform:translateY(40px);
-    transition:0.6s ease;
-} */
 
 .section.active{
     opacity:1;
@@ -134,7 +99,7 @@ body{
 }
 
 section {
-    padding: 150px 0px;
+    padding:0px 10px;;
     text-align: center;
     background: #f5f5f5;
     color: rgb(0, 0, 0);
