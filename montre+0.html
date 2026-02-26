@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Montre AKOUNGA</title>
+<link rel="stylesheet" href="indexx.css">
+<style>
+.gallery-container{
+    max-width:900px;
+    margin:50px auto;
+    text-align:center;
+}
+
+.main-image{
+    width:400px;
+    border-radius:15px;
+    margin-bottom:20px;
+    transition:0.3s;
+}
+
+.thumbnails{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+}
+
+.thumbnails img{
+    width:80px;
+    cursor:pointer;
+    border-radius:10px;
+    transition:0.3s;
+}
+
+.thumbnails img:hover{
+    transform:scale(1.1);
+}
+</style>
+</head>
+
+<body>
+
+<div class="gallery-container">
+
+    <h2>Montre disponibles</h2>
+
+    <img id="mainImage" src="image/montre+1.jpg" class="main-image">
+
+    <div class="thumbnails">
+        <img src="image/montre+1.jpg" onclick="changeImage(this)">
+        <img src="image/montre+2.jpg" onclick="changeImage(this)">
+        <img src="image/montre+3.jpg" onclick="changeImage(this)">
+        <img src="image/montre+4.jpg" onclick="changeImage(this)">
+        <img src="image/montre+5.jpg" onclick="changeImage(this)">
+        <img src="image/montre+6.jpg" onclick="changeImage(this)">
+    </div>
+
+</div>
+
+<script>
+function changeImage(element){
+    document.getElementById("mainImage").src = element.src;
+}
+</script>
+
+</body>
+</html>

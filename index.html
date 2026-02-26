@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>AKOUNGA Shop</title>
+    <meta name="description" content="AKOUNGA Shop - Importation et livraison Chine vers Gabon. Commandes groupées, prix réduits, livraison fiable.">
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+
+    <ul>
+        <li><a href="#">Accueil</a></li>
+        <li><a href="indexx.html">Produits</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+
+    <div class="cart-icon" onclick="toggleCart()">
+        🛒 <span id="cart-count">0</span>
+    </div>
+</nav>
+
+
+<header class="header">
+    <div class="header-content">
+        <img src="image/logoAKG.png" alt="Akounga Shop Logo" class="logo img">
+
+        <h1>AKOUNGA Shop</h1>
+        <br>
+        <h2>Import & Livraison Chine ➜ Gabon</h2>
+        <br>
+        <p>
+            Chez <strong>AKOUNGA Shop</strong>, nous mettons un point d’honneur à vous proposer
+            des produits de qualité, importés directement de Chine, aux meilleurs prix.
+            Grâce à notre système de commandes groupées, vous réalisez de véritables économies.
+        </p>
+
+        <a href="indexx.html" class="btn">
+            Voir les produits
+        </a>
+        <a href="xxx.html" class="btn">À propos de</a>
+    </div>
+</header>
+
+<!-- <header>
+<section class="offre" id="offre">
+    <h3>Comment ça fonctionne ?</h3>
+    <p>
+        À partir de <strong>5 unités commandées</strong> (ou d’un certain montant),
+        nos prix baissent automatiquement.
+        <br>
+        <strong>Plus vous commandez, plus le prix à l’unité diminue.</strong>
+    </p>
+</section>
+</header>
+
+<header>
+<section class="offre">
+    <p>
+        Avec le <strong>Nouvel An chinois 🧧</strong>, c’est le moment idéal pour faire vos stocks,
+        préparer vos projets ou commander en groupe.
+    </p>
+</section>
+</header>
+
+
+<header>
+<section class="offre">
+    <h3>Avantages exclusifs🎁</h3>
+    <ul>
+        <li>Livraison gratuite à partir de <strong>10 unités</strong> ou <strong>150 000 FCFA</strong></li>
+        <li>Cadeau surprise pour toute commande volumineuse</li>
+        <li>Traitement prioritaire de votre commande</li>
+        <li>Accès en avant-première aux nouvelles collections</li>
+        <li>Service personnalisé pour commandes en gros</li>
+    </ul>
+</section>
+</header>
+
+
+<header>
+<section class="offre">
+    <h3>📦 Tarifs de livraison</h3>
+    <ul>
+        <li>✈️ Avion : <strong>10 000 FCFA / kg</strong> (hors électroniques & liquides)</li>
+        <li>⚡ Express : <strong>13 500 FCFA / kg</strong> (2 à 5 jours)</li>
+        <li>🔋 Produits avec batterie : <strong>15 500 FCFA / kg</strong></li>
+        <li>🚢 Bateau : délai moyen <strong>2 mois</strong></li>
+    </ul>
+</section>
+</header>
+
+<header>
+<section class="offre">
+    <h3>💳 Recherche de prix</h3>
+    <p>
+        Pour toute recherche de prix personnalisée, un acompte de
+        <strong>20 000 FCFA</strong> est demandé afin de confirmer votre intention de commande.
+    </p>
+
+</section>
+</header>
+
+
+<header>
+<section class="offre" id="produits">
+    <h2>Nos articles</h2>
+
+    <div class="produits">
+        <div class="produit">
+            <a href="produit2.html">
+                <img src="image/IMG-20260203-WA0001.jpg" alt="Produit 1">
+            </a>
+            <h3>Bracelet+ Montre+ Parfum+Rouge à lèvres+ Fleurs</h3>
+            <p>5000 FCFA/Unité</p>
+            <p> 3500 FCFA à partir de 20 pièce</p>
+
+            <button onclick="addToCart('Chaussure', 5000, 'image/IMG-20260203-WA0001.jpg', 'AKG-001')" class="btn-small">
+                Ajouter au panier
+            </button>
+
+            <a href="https://wa.me/24166595089" class="btn" target="_blank">
+                Commander
+            </a>
+        </div>
+
+        <div class="produit">
+            <a href="produit1.html">
+                <img src="image/IMG-20260203-WA0003.jpg" alt="Produit 2">
+            </a>
+            <h3>Gourde+ Accessoire</h3>
+            <p>2500 FCFA/Unité</p>
+            <p>QUOTA: 20 pièces minimun</p>
+
+            <button onclick="addToCart('Chaussure', 2500, 'image/IMG-20260203-WA0003.jpg', 'AKG-002')" class="btn-small">
+                Ajouter au panier
+            </button>
+
+            <a href="https://wa.me/24166595089" class="btn" target="_blank">
+                Commander
+            </a>
+        </div>
+
+        <div class="produit">
+            <a href="#">
+                <img src="image/IMG-20260203-WA0006.jpg" alt="Produit 3">
+            </a>
+            <h3>Casquette</h3>
+            <p>1500 FCFA/Unité</p>
+
+            <button onclick="addToCart('Chaussure', 1500, 'image/IMG-20260203-WA0006.jpg', 'AKG-003')" class="btn-small">
+                Ajouter au panier
+            </button>
+
+            <a href="https://wa.me/24166595089" class="btn" target="_blank">
+                Commander
+            </a>
+        </div>
+
+        <div class="produit">
+            <a href="#">
+                <img src="image/IMG-20260210-WA0004.jpg" alt="Produit 4">
+            </a>
+            <h3>Perche à selfi</h3>
+            <p>1000 FCFA/Unité</p>
+            <p>QUOTA: 20 pièces minimun</p>
+
+            <button onclick="addToCart('Chaussure', 3000, 'image/IMG-20260210-WA0004.jpg', 'AKG-004')" class="btn-small">
+                Ajouter au panier
+            </button>
+
+            <a href="https://wa.me/24166595089" class="btn" target="_blank">
+                Commander
+            </a>
+        </div>
+
+        <div class="produit">
+            <a href="#">
+                <img src="image/IMG-20260210-WA0038.jpg" alt="Produit 5">
+            </a>
+            <h3>Air Pod Pro</h3>
+            <p>1500 FCFA/Unité</p>
+            <p>QUOTA: 10 pièces minimun</p>
+
+            <button onclick="addToCart('Chaussure', 3000, 'image/IMG-20260210-WA0038.jpg', 'AKG-005')" class="btn-small">
+                Ajouter au panier
+            </button>
+
+            <a href="https://wa.me/24166595089" class="btn" target="_blank">
+                Commander
+            </a>
+        </div>
+
+        <div class="produit">
+            <a href="#">
+                <img src="image/IMG-20260210-WA0042.jpg" alt="Produit 6">
+            </a>
+            <h3>Chaussure</h3>
+            <p>3000 FCFA/Unité</p>
+
+            <button onclick="addToCart('Casquette', 3000, 'image/IMG-20260210-WA0042.jpg', 'AKG-006')" class="btn-small">
+                Ajouter au panier
+            </button>
+
+            <a href="https://wa.me/24166595089" class="btn" target="_blank">
+                Commander
+            </a>
+        </div>
+
+        <div class="produit">
+            <a href="#">
+                <img src="image/IMG-20260210-WA0050.jpg" alt="Produit 6">
+            </a>
+            <h3>Ballerines</h3>
+            <p>2500 FCFA/Unité</p>
+            <p>QUOTA: 15 pièces minimun</p>
+
+            <button onclick="addToCart('Casquette', 2500, 'image/IMG-20260210-WA0050.jpg', 'AKG-006')" class="btn-small">
+                Ajouter au panier
+            </button>
+
+            <a href="https://wa.me/24166595089" class="btn" target="_blank">
+                Commander
+            </a>
+        </div>
+
+        <div class="produit">
+            <a href="#">
+                <img src="image/IMG-20260210-WA0053.jpg" alt="Produit 6">
+            </a>
+            <h3>PS 5 édition numérique</h3>
+            <p>310000 FCFA/Unité</p>
+            <button onclick="addToCart('Casquette', 310000, 'image/IMG-20260210-WA0053.jpg', 'AKG-006')" class="btn-small">
+                Ajouter au panier
+            </button>
+
+            <a href="https://wa.me/24166595089" class="btn" target="_blank">
+                Commander
+            </a>
+        </div>
+
+        <div class="produit">
+            <a href="#">
+                <img src="image/IMG-20260210-WA0061.jpg" alt="Produit 6">
+            </a>
+            <h3>Chaussure</h3>
+            <p>3000 FCFA/Unité</p>
+            <p>QUOTA: 12 pièces minimun</p>
+            <button onclick="addToCart('Casquette', 310000, 'image/IMG-20260210-WA0061.jpg', 'AKG-006')" class="btn-small">
+                Ajouter au panier
+            </button>
+
+            <a href="https://wa.me/24166595089" class="btn" target="_blank">
+                Commander
+            </a>
+        </div>
+
+        <div class="produit">
+            <a href="#">
+                <img src="image/IMG-20260210-WA0064.jpg" alt="Produit 6">
+            </a>
+            <h3>Chaussure</h3>
+            <p>3000 FCFA/Unité</p>
+            <p>QUOTA: 12 pièces minimun</p>
+            <button onclick="addToCart('Casquette', 310000, 'image/IMG-20260210-WA0064.jpg', 'AKG-006')" class="btn-small">
+                Ajouter au panier
+            </button>
+
+            <a href="https://wa.me/24166595089" class="btn" target="_blank">
+                Commander
+            </a>
+        </div>
+
+        <div class="produit">
+            <a href="#">
+                <img src="image/IMG-20260210-WA0066.jpg" alt="Produit 6">
+            </a>
+            <h3>Coffret Montre+ Bracelet</h3>
+            <p>1500 FCFA/Unité</p>
+            <p>QUOTA: 15 pièces minimun</p>
+            <button onclick="addToCart('Casquette', 1500, 'image/IMG-20260210-WA0066.jpg', 'AKG-006')" class="btn-small">
+                Ajouter au panier
+            </button>
+
+            <a href="https://wa.me/24166595089" class="btn" target="_blank">
+                Commander
+            </a>
+        </div>
+
+        <div class="produit">
+            <a href="#">
+                <img src="image/IMG-20260210-WA0074.jpg" alt="Produit 6">
+            </a>
+            <h3>iPhone</h3>
+            <p>
+                iPhone 15 128G 350mil
+                <br>
+                iPhone 14 Pro Max 256G 350mil
+                <br>
+                iPhone 14 128G 250mil
+                <br>
+                iPhone 13 128G 225mil
+            </p>
+            
+            <button onclick="addToCart('Casquette', 1500, 'image/IMG-20260210-WA0074.jpg', 'AKG-006')" class="btn-small">
+                Ajouter au panier
+            </button>
+
+            <a href="https://wa.me/24166595089" class="btn" target="_blank">
+                Commander
+            </a>
+        </div>
+    </div>
+</section>
+</header>
+
+<header>
+<section class="offre" id="contact">
+    <p>Intégré notre groupe WhatsApp pour plus d'accessibilité</p>
+    <a href="https://chat.whatsapp.com/K4E8KhLjTQC7QSiszR3KV5?mode=gi_t" class="btn" target="_blank">
+        Groupe WhatsApp
+    </a>
+</section>
+</header>
+
+<header>
+<section class="offre avantages">
+    <h2>Pourquoi nous choisir ?</h2>
+    <ul>
+        <li>✔️ Produits directs de Chine</li>
+        <li>✔️ Livraison fiable au Gabon</li>
+        <li>✔️ Prix accessibles</li>
+        <li>✔️ Commande simple via WhatsApp</li>
+    </ul>
+</section>
+</header>
+
+<footer>
+    <p>© 2026 AKOUNGA Shop – Tous droits réservés</p>
+</footer> -->
+
+<!-- Bouton WhatsApp flottant -->
+<a href="https://wa.me/24166595089"
+   class="whatsapp-float"
+   target="_blank">💬</a>
+
+
+
+
+<script>
+const sections = document.querySelectorAll(".offre");
+
+window.addEventListener("scroll", () => {
+    sections.forEach(section => {
+        const position = section.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+
+        if(position < screenPosition){
+            section.classList.add("active");
+        }
+    });
+});
+</script>
+
+
+<div class="cart" id="cart">
+    <div class="cart-header">
+        <h2>Votre panier</h2>
+        <span class="close-cart" onclick="toggleCart()">✖</span>
+    </div>
+
+    <ul id="cart-items"></ul>
+    <h3>Total : <span id="cart-total">0</span> FCFA</h3>
+    <button onclick="clearCart()" class="btn">Vider</button>
+    <button onclick="orderWhatsApp()" class="btn">
+        Commander via WhatsApp
+    </button>
+</div>
+
+<script>
+
+let cart = [];
+
+function addToCart(name, price, image, code){
+
+    let existing = cart.find(item => item.code === code);
+
+    if(existing){
+        existing.quantity++;
+    } else {
+        cart.push({name, price, image, code, quantity:1});
+    }
+
+    updateCart();
+}
+
+function updateCart(){
+
+    const cartItems = document.getElementById("cart-items");
+    const cartCount = document.getElementById("cart-count");
+    const cartTotal = document.getElementById("cart-total");
+
+    cartItems.innerHTML = "";
+
+    let total = 0;
+
+    cart.forEach((item, index) => {
+
+        total += item.price * item.quantity;
+
+        let li = document.createElement("li");
+        li.innerHTML = `
+            <img src="${item.image}" width="50" style="vertical-align:middle;border-radius:5px;">
+            <strong>${item.name}</strong> (${item.code})
+            ${item.price} FCFA x ${item.quantity}
+            <button onclick="increase(${index})">+</button>
+            <button onclick="decrease(${index})">-</button>
+            <button onclick="removeItem(${index})">❌</button>
+            <br><br>
+        `;
+        cartItems.appendChild(li);
+    });
+
+    cartCount.textContent = cart.length;
+    cartTotal.textContent = total;
+}
+
+function increase(index){
+    cart[index].quantity++;
+    updateCart();
+}
+
+function decrease(index){
+    if(cart[index].quantity > 1){
+        cart[index].quantity--;
+    } else {
+        cart.splice(index,1);
+    }
+    updateCart();
+}
+
+function removeItem(index){
+    cart.splice(index,1);
+    updateCart();
+}
+
+function toggleCart(){
+    document.getElementById("cart").classList.toggle("active");
+}
+
+function clearCart(){
+    cart = [];
+    updateCart();
+}
+
+function orderWhatsApp(){
+
+    if(cart.length === 0){
+        alert("Votre panier est vide !");
+        return;
+    }
+
+    let total = 0;
+
+    let message = "Bonjour AKOUNGA Shop,%0A%0A";
+    message += "Je souhaite commander les produits suivants :%0A%0A";
+
+    cart.forEach(item => {
+
+        total += item.price * item.quantity;
+
+        message += "Produit : " + item.name + "%0A";
+        message += "Code : " + item.code + "%0A";
+        message += "Quantité : " + item.quantity + "%0A";
+        message += "Prix total : " + (item.price * item.quantity) + " FCFA%0A";
+        message += "Image : https://tonsite.com/" + item.image + "%0A%0A";
+    });
+
+    message += "TOTAL GENERAL : " + total + " FCFA";
+
+    let phone = "24166595089";
+
+    window.open("https://wa.me/" + phone + "?text=" + message, "_blank");
+}
+
+</script>
+
+
+</body>
+</html>

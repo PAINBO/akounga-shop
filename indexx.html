@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>AKOUNGA Shop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AKOUNGA Shop - Importation Chine vers Gabon. Produits de qualité aux meilleurs prix.">
+
+    <link rel="stylesheet" href="CSS/indexx.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+ <!-- NAVBAR -->
+ <nav class="navbar">
+    <div class="logo">
+        <img src="image/logoAKG.png" alt="AKOUNGA Shop Logo">
+    </div>
+
+    <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="#produits">Produits</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="cart-icon" onclick="toggleCart()">
+        🛒 <span id="cart-count">0</span>
+    </div>
+ </nav>
+   
+			<div class="search-box">
+
+				<input id="search-input" type="search" placeholder="Rechercher vos produits..." autocomplete="off" />
+				<div id="suggestions" class="suggestions"></div>
+				
+			</div>
+    
+ <script>
+    // Frontend search: local dataset + optional web search via backend proxy
+    let stores = []
+    let results = []
+    const pageSize = 6
+    let currentPage = 1
+
+    const el = {
+      input: document.getElementById('search-input'),
+      suggestions: document.getElementById('suggestions'),
+      results: document.getElementById('results'),
+      stats: document.getElementById('stats'),
+      loading: document.getElementById('loading'),
+      webToggle: document.getElementById('web-toggle')
+    }
+ </script>
+ <!-- HERO -->
+ <!-- <header class="hero">
+    <div class="hero-content">
+        <h1>Import & Livraison Chine ➜ Gabon</h1>
+        <p>Produits de qualité aux meilleurs prix avec commandes groupées.</p>
+        <a href="#produits" class="btn">Voir les produits</a>
+    </div>
+ </header> -->
+
+ <!-- SECTION PRODUITS -->
+
+ <section id="produits" class="section">
+
+    <div class="produits">
+
+        <div class="produit">
+            <a href="clim.html">
+                <img src="image/clim.jpeg" alt="Produit 13">
+            </a>
+            <h3>Climatiseur de Luxe à Brume Glacée – Sky Powered Battery Edition !</h3>
+            <p>5000 FCFA/Unité</p>
+            <p>Disponible en pré commande seulement.</p>
+
+            <button onclick="addToCart('Climatiseur de Luxe à Brume Glacée – Sky Powered Battery Edition !', 5000, 'image/clim.jpeg', 'AKG-013')" class="btn-small">
+                Ajouter au panier
+            </button>
+
+            <a href="https://wa.me/24166595089" class="btn-small" target="_blank">
+                Commander
+            </a>
+        </div>
+        <div class="produit">
+            <a href="ampoul.html">
+                <img src="image/ampoule.jpeg" alt="Produit 14">
+            </a>
+            <h3>Ampoules à batterie de 99 heures</h3>
+            <h3></h3>
+            <p>600 FCFA/Unité</p>
+            <p> QUOTA :20 Pièces minimun</p>
+
+            <button onclick="addToCart('Ampoules à batterie de 99 heures', 600, 'image/ampoule.jpeg', 'AKG-014')" class="btn-small">
+                Ajouter au panier
+            </button>
+
+            <a href="https://wa.me/24166595089" class="btn-small" target="_blank">
+                Commander
+            </a>
+        </div>
+        <div class="produit">
+            <a href="charge.html">
+                <img src="image/charge.jpeg" alt="Produit 15">
+            </a>
+            <h3>Charge solaire et électrique</h3>
+            <p>3500 FCFA/Unité</p>
+            <p>QUOTA :8 Pièces minimun</p>
+
+            <button onclick="addToCart('Charge solaire et électrique', 3500, 'image/IMG-20260203-WA0001.jpg', 'AKG-015')" class="btn-small">
+                Ajouter au panier
+            </button>
+
+            <a href="https://wa.me/24166595089" class="btn-small" target="_blank">
+                Commander
+            </a>
+        </div>
+        <div class="produit">
+            <a href="vent.html">
+                <img src="image/ventilo.jpeg" alt="Produit 16">
+            </a>
+            <h3>Gris ciel Moteur à turbine haute vitesse/Batterie au lithium/Modèle rechargeable</h3>
+            <p>2000 FCFA/Unité</p>
+            <p>QUOTA :15 Pièces minimun</p>
+
+            <button onclick="addToCart('Gris ciel Moteur à turbine haute vitesse/Batterie au lithium/Modèle rechargeable', 2000, 'image/ventilo.jpeg', 'AKG-016')" class="btn-small">
+                Ajouter au panier
+            </button>
+
+            <a href="https://wa.me/24166595089" class="btn-small" target="_blank">
+                Commander
+            </a>
+        </div>
+        <div class="produit">
+            <a href="coffret.html">
+                <img src="image/coffret-montre1.jpg" alt="Produit 1">
+            </a>
+            <h3>Bracelet+ Montre+ Parfum+Rouge à lèvres+ Fleurs</h3>
+            <p>5000 FCFA/Unité</p>
+            <p> 3500 FCFA à partir de 20 pièce</p>
+
+            <button onclick="addToCart('Bracelet+ Montre+ Parfum+Rouge à lèvres+ Fleurs', 5000, 'image/coffret-montre1.jpg', 'AKG-001')" class="btn-small">
+                Ajouter au panier
+            </button>
+
+            <a href="https://wa.me/24166595089" class="btn-small" target="_blank">
+                Commander
+            </a>
+        </div>
+
+        <div class="produit">
+            <a href="gourde.html">
+                <img src="image/acces-gourde1.jpg" alt="Produit 2">
+            </a>
+            <h3>Gourde+ Accessoire</h3>
+            <p>2500 FCFA/Unité</p>
+            <p>QUOTA: 20 pièces minimun</p>
+
+            <button onclick="addToCart('Gourde+ Accessoire', 2500, 'image/acces-gourde1.jpg', 'AKG-002')" class="btn-small">
+                Ajouter au panier
+            </button>
+
+            <a href="https://wa.me/24166595089" class="btn-small" target="_blank">
+                Commander
+            </a>
+        </div>
+
+        <div class="produit">
+            <a href="casquette.html">
+                <img src="image/casquette1.jpg" alt="Produit 3">
+            </a>
+            <h3>Casquette</h3>
+            <p>1500 FCFA/Unité</p>
+            <p>QUOTA: 15 pièces minimun</p>
+
+            <button onclick="addToCart('Casquette', 1500, 'image/casquette1.jpg', 'AKG-003')" class="btn-small">
+                Ajouter au panier
+            </button>
+
+            <a href="https://wa.me/24166595089" class="btn-small" target="_blank">
+                Commander
+            </a>
+        </div>
+
+        <div class="produit">
+            <a href="perche.html">
+                <img src="image/perche.jpg" alt="Produit 4">
+            </a>
+            <h3>Perche à selfi</h3>
+            <p>1000 FCFA/Unité</p>
+            <p>QUOTA: 20 pièces minimun</p>
+
+            <button onclick="addToCart('Perche à selfi', 1000, 'image/perche.jpg', 'AKG-004')" class="btn-small">
+                Ajouter au panier
+            </button>
+
+            <a href="https://wa.me/24166595089" class="btn-small" target="_blank">
+                Commander
+            </a>
+        </div>
+
+        <div class="produit">
+            <a href="air.html">
+                <img src="image/air pod.jpg" alt="Produit 5">
+            </a>
+            <h3>Air Pod Pro</h3>
+            <p>1500 FCFA/Unité</p>
+            <p>QUOTA: 10 pièces minimun</p>
+
+            <button onclick="addToCart('Air Pod Pro', 1500, 'image/air pod.jpg', 'AKG-005')" class="btn-small">
+                Ajouter au panier
+            </button>
+
+            <a href="https://wa.me/24166595089" class="btn-small" target="_blank">
+                Commander
+            </a>
+        </div>
+
+        <div class="produit">
+            <a href="chaussA.html">
+                <img src="image/chaussA1.jpg" alt="Produit 6">
+            </a>
+            <h3>Chaussure</h3>
+            <p>3000 FCFA/Unité</p>
+            <p>QUOTA: 12 pièces minimun</p>
+
+            <button onclick="addToCart('Chaussure', 3000, 'image/chaussA1.jpg', 'AKG-006')" class="btn-small">
+                Ajouter au panier
+            </button>
+
+            <a href="https://wa.me/24166595089" class="btn-small" target="_blank">
+                Commander
+            </a>
+        </div>
+
+        <div class="produit">
+            <a href="bal.html">
+                <img src="image/bal1.jpg" alt="Produit 7">
+            </a>
+            <h3>Ballerines</h3>
+            <p>2500 FCFA/Unité</p>
+            <p>QUOTA: 15 pièces minimun</p>
+
+            <button onclick="addToCart('Ballerines', 2500, 'image/bal1.jpg', 'AKG-007')" class="btn-small">
+                Ajouter au panier
+            </button>
+
+            <a href="https://wa.me/24166595089" class="btn-small" target="_blank">
+                Commander
+            </a>
+        </div>
+
+        <div class="produit">
+            <a href="play.html">
+                <img src="image/play.jpg" alt="Produit 8">
+            </a>
+            <h3>PS 5 édition numérique</h3>
+            <p>310000 FCFA/Unité</p>
+            <button onclick="addToCart('PS 5 édition numérique', 310000, 'image/play.jpg', 'AKG-008')" class="btn-small">
+                Ajouter au panier
+            </button>
+
+            <a href="https://wa.me/24166595089" class="btn-small" target="_blank">
+                Commander
+            </a>
+        </div>
+
+        <div class="produit">
+            <a href="chaussB.html">
+                <img src="image/chaussB1.jpg" alt="Produit 9">
+            </a>
+            <h3>Chaussure</h3>
+            <p>3000 FCFA/Unité</p>
+            <p>QUOTA: 12 pièces minimun</p>
+            <button onclick="addToCart('Chaussure', 3000, 'image/chaussB1.jpg', 'AKG-009')" class="btn-small">
+                Ajouter au panier
+            </button>
+
+            <a href="https://wa.me/24166595089" class="btn-small" target="_blank">
+                Commander
+            </a>
+        </div>
+
+        <div class="produit">
+            <a href="chaussC.html">
+                <img src="image/chaussC1.jpg" alt="Produit 10">
+            </a>
+            <h3>Chaussure</h3>
+            <p>3000 FCFA/Unité</p>
+            <p>QUOTA: 12 pièces minimun</p>
+            <button onclick="addToCart('Chaussure', 3000, 'image/chaussC1.jpeg', 'AKG-010')" class="btn-small">
+                Ajouter au panier
+            </button>
+
+            <a href="https://wa.me/24166595089" class="btn-small" target="_blank">
+                Commander
+            </a>
+        </div>
+
+        <div class="produit">
+            <a href="montre+0.html">
+                <img src="image/montre+1.jpg" alt="Produit 11">
+            </a>
+            <h3>Coffret Montre+ Bracelet</h3>
+            <p>1500 FCFA/Unité</p>
+            <p>QUOTA: 15 pièces minimun</p>
+            <button onclick="addToCart('Coffret Montre+ Bracelet', 1500, 'image/montre+1.jpg', 'AKG-011')" class="btn-small">
+                Ajouter au panier
+            </button>
+
+            <a href="https://wa.me/24166595089" class="btn-small" target="_blank">
+                Commander
+            </a>
+        </div>
+
+        <div class="produit">
+            <a href="#">
+                <img src="image/iPhone.jpg" alt="Produit 12">
+            </a>
+            <h3>iPhone</h3>
+            <p>
+                iPhone 15 128G 350mil
+                <br>
+                iPhone 14 Pro Max 256G 350mil
+                <br>
+                iPhone 14 128G 250mil
+                <br>
+                iPhone 13 128G 225mil
+            </p>
+            
+            <button onclick="addToCart('iPhone', 350000, '.jpg', 'AKG-012')" class="btn-small">
+                Ajouter au panier
+            </button>
+
+            <a href="https://wa.me/24166595089" class="btn-small" target="_blank">
+                Commander
+            </a>
+        </div>
+
+    </div>
+ </section>
+
+ <!-- CONTACT -->
+ <section id="contact" class="section dark">
+    <h2>Rejoignez notre groupe WhatsApp</h2>
+    <a href="https://chat.whatsapp.com/K4E8KhLjTQC7QSiszR3KV5" target="_blank" class="btn">
+        Groupe WhatsApp
+    </a>
+ </section>
+
+ <footer>
+    <p>© 2026 AKOUNGA Shop – Tous droits réservés</p>
+ </footer>
+
+ <!-- Bouton WhatsApp flottant -->
+ <a href="https://wa.me/24166595089" class="whatsapp-float" target="_blank">💬</a>
+
+ <!-- Animation Scroll -->
+ <script>
+ const sections = document.querySelectorAll(".section");
+
+ window.addEventListener("scroll", () => {
+    sections.forEach(sec => {
+        const position = sec.getBoundingClientRect().top;
+        const screen = window.innerHeight / 1.3;
+
+        if(position < screen){
+            sec.classList.add("active");
+        }
+    });
+ });
+ </script>
+
+
+ <div class="cart" id="cart">
+    <div class="cart-header">
+        <h2>Votre panier</h2>
+        <span class="close-cart" onclick="toggleCart()">✖</span>
+    </div>
+
+    <ul id="cart-items"></ul>
+    <h3>Total : <span id="cart-total">0</span> FCFA</h3>
+    <button onclick="clearCart()" class="btn">Vider</button>
+    <button onclick="orderWhatsApp()" class="btn">
+        Commander via WhatsApp
+    </button>
+ </div>
+
+
+ <script>
+
+ let cart = [];
+
+ function addToCart(name, price, image, code){
+
+    let existing = cart.find(item => item.code === code);
+
+    if(existing){
+        existing.quantity++;
+    } else {
+        cart.push({name, price, image, code, quantity:1});
+    }
+
+    updateCart();
+ }
+
+ function updateCart(){
+
+    const cartItems = document.getElementById("cart-items");
+    const cartCount = document.getElementById("cart-count");
+    const cartTotal = document.getElementById("cart-total");
+
+    cartItems.innerHTML = "";
+
+    let total = 0;
+
+    cart.forEach((item, index) => {
+
+        total += item.price * item.quantity;
+
+        let li = document.createElement("li");
+        li.innerHTML = `
+            <img src="${item.image}" width="50" style="vertical-align:middle;border-radius:5px;">
+            <strong>${item.name}</strong> (${item.code})
+            ${item.price} FCFA x ${item.quantity}
+            <button onclick="increase(${index})">+</button>
+            <button onclick="decrease(${index})">-</button>
+            <button onclick="removeItem(${index})">❌</button>
+            <br><br>
+        `;
+        cartItems.appendChild(li);
+    });
+
+    cartCount.textContent = cart.length;
+    cartTotal.textContent = total;
+ }
+
+ function increase(index){
+    cart[index].quantity++;
+    updateCart();
+ }
+
+function decrease(index){
+    if(cart[index].quantity > 1){
+        cart[index].quantity--;
+    } else {
+        cart.splice(index,1);
+    }
+    updateCart();
+ }
+
+ function removeItem(index){
+    cart.splice(index,1);
+    updateCart();
+ }
+
+ function toggleCart(){
+    document.getElementById("cart").classList.toggle("active");
+ }
+
+ function clearCart(){
+    cart = [];
+    updateCart();
+ }
+
+ function orderWhatsApp(){
+
+    if(cart.length === 0){
+        alert("Votre panier est vide !");
+        return;
+    }
+
+    let total = 0;
+
+    let message = "Bonjour AKOUNGA Shop,%0A%0A";
+    message += "Je souhaite commander les produits suivants :%0A%0A";
+
+    cart.forEach(item => {
+
+        total += item.price * item.quantity;
+
+        message += "Produit : " + item.name + "%0A";
+        message += "Code : " + item.code + "%0A";
+        message += "Quantité : " + item.quantity + "%0A";
+        message += "Prix total : " + (item.price * item.quantity) + " FCFA%0A";
+        message += "Image : https://tonsite.com/" + item.image + "%0A%0A";
+    });
+
+    message += "TOTAL GENERAL : " + total + " FCFA";
+
+    let phone = "24166595089";
+
+    window.open("https://wa.me/" + phone + "?text=" + message, "_blank");
+ }
+
+ </script>
+
+<script>
+
+const searchInput = document.getElementById("search-input");
+const produits = document.querySelectorAll(".produit");
+
+searchInput.addEventListener("input", function() {
+
+    let value = searchInput.value.toLowerCase();
+
+    produits.forEach(produit => {
+
+        let title = produit.querySelector("h3").textContent.toLowerCase();
+
+        if(title.includes(value)){
+            produit.style.display = "block";
+        } else {
+            produit.style.display = "none";
+        }
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>

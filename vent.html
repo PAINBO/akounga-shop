@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Mini-ventilateurs AKOUNGA</title>
+<link rel="stylesheet" href="indexx.css">
+<style>
+.gallery-container{
+    max-width:900px;
+    margin:50px auto;
+    text-align:center;
+}
+
+.main-image{
+    width:400px;
+    border-radius:15px;
+    margin-bottom:20px;
+    transition:0.3s;
+}
+
+.thumbnails{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+}
+
+.thumbnails img{
+    width:80px;
+    cursor:pointer;
+    border-radius:10px;
+    transition:0.3s;
+}
+
+.thumbnails img:hover{
+    transform:scale(1.1);
+}
+</style>
+</head>
+
+<body>
+
+<div class="gallery-container">
+
+    <h2>Mini-ventilateurs disponibles</h2>
+
+    <img id="mainImage" src="image/ventilo.jpeg" class="main-image">
+
+    <div class="thumbnails">
+    </div>
+
+</div>
+
+<script>
+function changeImage(element){
+    document.getElementById("mainImage").src = element.src;
+}
+</script>
+
+</body>
+</html>
