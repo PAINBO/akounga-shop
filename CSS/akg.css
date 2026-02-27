@@ -65,6 +65,7 @@ body{
 /* Panier */
 .cart-icon {
     font-size: 20px;
+    right: 20px;
     cursor: pointer;
     display: flex;
     align-items: center;
