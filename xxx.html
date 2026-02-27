@@ -5,7 +5,7 @@
     <title>AKOUNGA Shop</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="AKOUNGA Shop - Importation Chine vers Gabon. Produits de qualité aux meilleurs prix.">
-    <link rel="stylesheet" href="CSS/indexx.css">
+    <link rel="stylesheet" href="CSS/akg.css">
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -16,15 +16,30 @@
 <nav class="navbar">
     <div class="logo">
         AKOUNGA<span>-Shop</span>
-        <!-- <img src="image/logoAKG.png" alt="AKOUNGA Shop Logo"> -->
     </div>
 
-    <ul>
+    <div class="navbar-right">
+        <div class="hamburger" id="hamburger">&#9776;</div>
+    </div>
+
+    <ul id="nav-links">
         <li><a href="index.html">Accueil</a></li>
         <li><a href="indexx.html">Produits</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="contact.html">Contact</a></li>
     </ul>
 </nav>
+
+ <script>
+  // s'assurer que le DOM est chargé
+  document.addEventListener("DOMContentLoaded", function() {
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  });
+ </script>
 
 <section>
     <h1>Présentation Officielle</h1>
