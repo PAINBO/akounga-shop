@@ -17,7 +17,7 @@ body{
 .logo img{
     height: 70px;
     width: auto;
-    object-fit: contain;
+    object-fit: contain;    
 }
 
 
@@ -52,9 +52,16 @@ body{
 
 @media (max-width: 768px){
     .logo img{
-        height: 30px;
+        height: 25px;
         width: auto;
         object-fit: contain;
+    }
+
+    .navbar a{
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+    font-size:14px;
     }
 }
 
@@ -74,6 +81,18 @@ body{
 
 .hero h1{
     font-size:40px;
+}
+
+@media (max-width: 768px){
+
+    h1{
+        font-size: 22px;
+    }
+
+    h3{
+        font-size: 16px;
+    }
+
 }
 
 .btn{
@@ -97,6 +116,13 @@ body{
     opacity:1;
     transform:translateY(0);
 }
+
+section.dark{
+    background:#111;
+    color:white;
+    padding: 150px 0px;
+}
+
 
 section {
     padding:0px 10px;;
@@ -133,8 +159,40 @@ section {
     background:white;
     padding:20px;
     border-radius:15px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    box-shadow:0 10px 25px #1d1c1c;
     transition:0.3s;
+}
+
+@media (max-width: 768px){
+
+    .produits{
+        grid-template-columns: repeat(2, 1fr);
+        gap:15px;
+    }
+
+    .produit{
+        padding:10px;
+        border-radius:10px;
+    }
+
+    .produit img{
+        height:150px;
+        object-fit:cover;
+    }
+
+    .produit h3{
+        font-size:14px;
+    }
+
+    .produit p{
+        font-size:13px;
+    }
+
+    .btn-small{
+        padding:6px 10px;
+        font-size:12px;
+    }
+
 }
 
 .produit:hover{
@@ -166,6 +224,28 @@ section {
 .cart-icon{
     cursor:pointer;
     font-size:20px;
+}
+
+@media (max-width: 768px){
+    .cart-icon{
+        position: relative;
+        cursor: pointer;
+        font-size:18px;
+        display: flex;
+        align-items: center;
+   }
+
+    #cart-count{
+        position: absolute;
+        top: -6px;
+        right: -10px;
+        background: red;
+        color: white;
+        font-size: 11px;
+        padding: 2px 6px;
+        border-radius: 50px;
+        font-weight: bold;
+    }
 }
 
 .cart{
@@ -213,6 +293,22 @@ section {
     color:red;
 }
 
+@media (max-width: 768px){
+
+    .cart{
+        width: 100%;
+        right: -100%;
+        height: 100vh;
+        border-radius: 0;
+        padding: 20px;
+    }
+
+    .cart.active{
+        right: 0;
+    }
+
+}
+
 /* FOOTER */
 footer{
     padding:20px;
@@ -229,7 +325,7 @@ footer{
     background:#25D366;
     color:white;
     font-size:25px;
-    padding:15px;
+    padding:5px;
     border-radius:50%;
     text-decoration:none;
     box-shadow:0 5px 15px rgba(0,0,0,0.3);
@@ -246,4 +342,36 @@ footer{
     outline:none;
     border:1px solid #ff6600;
     box-shadow:0 0 10px rgba(255,102,0,0.3);
+}
+
+.header {
+    background:#111;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.header-content {
+    animation: headerFade 3.2s ease;
+}
+
+header {
+    background: linear-gradient(135deg, #0a4b78, #0f6fb2);
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+    animation: headerFade 1s ease;
+}
+
+@keyframes headerFade {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

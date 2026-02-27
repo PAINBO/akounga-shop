@@ -22,7 +22,7 @@
     <ul>
         <li><a href="index.html">Accueil</a></li>
         <li><a href="#produits">Produits</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="contact.html">Contact</a></li>
     </ul>
 
     <div class="cart-icon" onclick="toggleCart()">
@@ -343,12 +343,6 @@
  </section>
 
  <!-- CONTACT -->
- <section id="contact" class="section dark">
-    <h2>Rejoignez notre groupe WhatsApp</h2>
-    <a href="https://chat.whatsapp.com/K4E8KhLjTQC7QSiszR3KV5" target="_blank" class="btn">
-        Groupe WhatsApp
-    </a>
- </section>
 
  <footer>
     <p>© 2026 AKOUNGA Shop – Tous droits réservés</p>
@@ -456,9 +450,19 @@ function decrease(index){
     updateCart();
  }
 
+
  function toggleCart(){
-    document.getElementById("cart").classList.toggle("active");
+    const cart = document.getElementById("cart");
+    cart.classList.toggle("active");
+
+    if(cart.classList.contains("active")){
+        document.body.style.overflow = "hidden";
+    } else {
+        document.body.style.overflow = "auto";
+    }
  }
+
+
 
  function clearCart(){
     cart = [];

@@ -32,7 +32,7 @@ header {
 
 
 /* NAVBAR */
-.navbar{
+/* .navbar{
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -55,7 +55,8 @@ header {
     color:white;
     text-decoration:none;
     font-weight:bold;
-}
+    font-size: 14px;
+} */
 
 
 
@@ -70,6 +71,18 @@ p {
     font-size: 1.1rem;
     opacity: 0.9;
     margin-top: 8px;
+}
+
+@media (max-width: 768px){
+
+    h1{
+        font-size: 22px;
+    }
+
+    h3{
+        font-size: 16px;
+    }
+
 }
 
 
@@ -321,7 +334,7 @@ footer{
 
 
 /* WhatsApp flottant */
-.whatsapp-float{
+/* .whatsapp-float{
     position:fixed;
     bottom:24px;
     right:38px;
@@ -332,7 +345,7 @@ footer{
     border-radius:50%;
     text-decoration:none;
     box-shadow:0 5px 15px rgba(0,0,0,0.3);
-}
+} */
 
 
 /* @keyframes pulse {
