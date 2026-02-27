@@ -14,13 +14,32 @@ body{
 
 
 
-.logo img{
+/* .logo img{
     height: 70px;
     width: auto;
     object-fit: contain;    
+} */
+
+
+.logo{
+    font-size:24px;
+    font-weight:700;
+    color:white;
+    letter-spacing:1px;
 }
 
+.logo span{
+    color:white;
+    font-weight:600;
+}
 
+@media (max-width: 768px){
+
+    .logo{
+        font-size:16px;   /* plus petit */
+    }
+
+}
 
 .navbar{
     display:flex;
