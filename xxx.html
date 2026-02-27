@@ -6,39 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="AKOUNGA Shop - Importation Chine vers Gabon. Produits de qualité aux meilleurs prix.">
     <link rel="stylesheet" href="CSS/akg.css">
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar">
+ <nav class="navbar">
     <div class="logo">
         AKOUNGA<span>-Shop</span>
     </div>
 
     <div class="navbar-right">
-        <div class="hamburger" id="hamburger">&#9776;</div>
+
+        <div class="hamburger" id="hamburger">
+            &#9776;
+            <span id="menu-notification" class="notification-badge">0</span>
+        </div>
+
     </div>
 
     <ul id="nav-links">
+        <li class="cart-menu" onclick="toggleCart()" style="position:relative;">
+            Panier 🛒
+            <span id="cart-notification" class="notification-badge">0</span>
+        </li>
         <li><a href="index.html">Accueil</a></li>
-        <li><a href="indexx.html">Produits</a></li>
+        <li><a href="#produits">Produits</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
-</nav>
+ </nav>
 
  <script>
-  // s'assurer que le DOM est chargé
-  document.addEventListener("DOMContentLoaded", function() {
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
+ document.addEventListener("DOMContentLoaded", function(){
 
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+
+    hamburger.addEventListener("click", function(){
+        navLinks.classList.toggle("active");
     });
-  });
+
+ });
  </script>
 
 <section>
@@ -137,3 +144,208 @@
 </footer>
 
 <a href="https://wa.me/24166595089" class="whatsapp-float" target="_blank">💬</a>
+
+
+ <script>
+
+
+ const sections = document.querySelectorAll(".section");
+
+ window.addEventListener("scroll", () => {
+    sections.forEach(sec => {
+        const position = sec.getBoundingClientRect().top;
+        const screen = window.innerHeight / 1.3;
+
+        if(position < screen){
+            sec.classList.add("active");
+        }
+    });
+ });
+ </script>
+
+
+ <div class="cart" id="cart">
+    <div class="cart-header">
+        <h2>Votre panier</h2>
+        <span class="close-cart" onclick="toggleCart()">✖</span>
+    </div>
+
+    <ul id="cart-items"></ul>
+    <h3>Total : <span id="cart-total">0</span> FCFA</h3>
+    <button onclick="clearCart()" class="btn">Vider</button>
+    <button onclick="orderWhatsApp()" class="btn">
+        Commander via WhatsApp
+    </button>
+ </div>
+
+
+ <script>
+
+ let cart = [];
+
+ function addToCart(name, price, image, code){
+
+    let existing = cart.find(item => item.code === code);
+
+    if(existing){
+        existing.quantity++;
+    } else {
+        cart.push({name, price, image, code, quantity:1});
+    }
+
+    updateCart();
+ }
+
+function updateCart(){
+
+    const cartItems = document.getElementById("cart-items");
+    const cartTotal = document.getElementById("cart-total");
+    const menuNotification = document.getElementById("menu-notification");
+    const cartNotification = document.getElementById("cart-notification");
+
+    cartItems.innerHTML = "";
+
+    let total = 0;
+    let totalQuantity = 0;
+
+    cart.forEach((item, index) => {
+
+        total += item.price * item.quantity;
+        totalQuantity += item.quantity;
+
+        let li = document.createElement("li");
+        li.innerHTML = `
+            <img src="${item.image}" width="50" style="vertical-align:middle;border-radius:5px;">
+            <strong>${item.name}</strong> (${item.code})
+            ${item.price} FCFA x ${item.quantity}
+            <button onclick="increase(${index})">+</button>
+            <button onclick="decrease(${index})">-</button>
+            <button onclick="removeItem(${index})">❌</button>
+            <br><br>
+        `;
+        cartItems.appendChild(li);
+    });
+
+    cartTotal.textContent = total;
+
+    if(totalQuantity > 0){
+
+        if(menuNotification){
+            menuNotification.style.display = "flex";
+            menuNotification.textContent = totalQuantity;
+        }
+
+        if(cartNotification){
+            cartNotification.style.display = "flex";
+            cartNotification.textContent = totalQuantity;
+        }
+
+    } else {
+
+        if(menuNotification){
+            menuNotification.style.display = "none";
+        }
+
+        if(cartNotification){
+            cartNotification.style.display = "none";
+        }
+    }
+}
+
+ function increase(index){
+    cart[index].quantity++;
+    updateCart();
+ }
+
+ function decrease(index){
+    if(cart[index].quantity > 1){
+        cart[index].quantity--;
+    } else {
+        cart.splice(index,1);
+    }
+    updateCart();
+ }
+
+ function removeItem(index){
+    cart.splice(index,1);
+    updateCart();
+ }
+
+
+ function toggleCart(){
+    const cartBox = document.getElementById("cart");
+    cartBox.classList.toggle("active");
+
+    if(cartBox.classList.contains("active")){
+        document.body.style.overflow = "hidden";
+    } else {
+        document.body.style.overflow = "auto";
+    }
+ }
+
+
+
+ function clearCart(){
+    cart = [];
+    updateCart();
+ }
+
+ function orderWhatsApp(){
+
+    if(cart.length === 0){
+        alert("Votre panier est vide !");
+        return;
+    }
+
+    let total = 0;
+
+    let message = "Bonjour AKOUNGA Shop,%0A%0A";
+    message += "Je souhaite commander les produits suivants :%0A%0A";
+
+    cart.forEach(item => {
+
+        total += item.price * item.quantity;
+
+        message += "Produit : " + item.name + "%0A";
+        message += "Code : " + item.code + "%0A";
+        message += "Quantité : " + item.quantity + "%0A";
+        message += "Prix total : " + (item.price * item.quantity) + " FCFA%0A";
+        message += "Image : https://tonsite.com/" + item.image + "%0A%0A";
+    });
+
+    message += "TOTAL GENERAL : " + total + " FCFA";
+
+    let phone = "24166595089";
+
+    window.open("https://wa.me/" + phone + "?text=" + message, "_blank");
+ }
+
+ </script>
+
+<script>
+
+const searchInput = document.getElementById("search-input");
+const produits = document.querySelectorAll(".produit");
+
+searchInput.addEventListener("input", function() {
+
+    let value = searchInput.value.toLowerCase();
+
+    produits.forEach(produit => {
+
+        let title = produit.querySelector("h3").textContent.toLowerCase();
+
+        if(title.includes(value)){
+            produit.style.display = "block";
+        } else {
+            produit.style.display = "none";
+        }
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>

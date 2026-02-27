@@ -58,9 +58,42 @@ body{
 /* Hamburger tout à droite */
 .hamburger {
     display: none; /* visible sur mobile */
+    position: relative;
     font-size: 28px;
     cursor: pointer;
-    margin-right: 10px;
+}
+
+/* Notification rouge sur hamburger */
+.menu-notification {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 10px;
+    height: 10px;
+    background: red;
+    border-radius: 50%;
+    display: none;
+}
+
+.notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    background: red;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    min-width: 18px;
+    height: 18px;
+    padding: 2px 5px;
+    border-radius: 50px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.hamburger {
+    position: relative;
 }
 
 /* Panier */
